@@ -1,0 +1,73 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+print('TASK-1')
+print('-------------------------------------------------')
+areas = ['bedroom',112.0,'hallway',113.5,'bathroom',189.5,'kitchen',789.0,'livingRoom',230.2]
+print("Original List:", areas)
+print('-------------------------------------------------')
+float_area = areas[1:10:2]
+print("After Cloning:", float_area)
+print('-------------------------------------------------')
+str_area = areas[0:10:2]
+print("After Cloning:", str_area)
+print('-------------------------------------------------')
+cloning = areas[0:2:1]
+print('After Slicing:', cloning)
+
+print('-------------------------------------------------')
+print('TASK-2')
+print('-------------------------------------------------')
+areas.append(['pool',112.7,177.9])
+areas.append(['grg',112.0])
+print(areas)
+
+
+print('-------------------------------------------------')
+print('TASK-3')
+print('-------------------------------------------------')
+orignalDict = [{'student_id': 1, 'name': 'Jean Castro', 'class': 'V'}, {'student_id': 2, 'name': 'Lula Powell', 'class': 'V'}, {'student_id': 3, 'name': 'Brian Howell', 'class': 'VI'}, {'student_id': 4, 'name': 'Lynne Foster', 'class': 'VI'}, {'student_id': 5, 'name': 'Zachary Simon', 'class': 'VII'}]
+
+
+
+print('-------------------------------------------------')
+print('NUMPY')
+print('-------------------------------------------------')
+
+
+print('-------------------------------------------------')
+print('TASK 1')
+print('-------------------------------------------------')
+
+array = np.zeros(10)
+print(array)
+array = np.ones(10)
+print(array)
+array = np.ones(10)*5
+print(array)
+
+
+print('-------------------------------------------------')
+print('TASK 2')
+print('-------------------------------------------------')
+
+array = np.arange(10,22).reshape((3,4))
+print(array)
+
+print('-------------------------------------------------')
+print('TASK 3')
+print('-------------------------------------------------')
+
+np.savetxt('temp.txt',array)
+print('loading the text file')
+array = np.loadtxt('temp.txt')
+print(array)
+
+print('-------------------------------------------------')
+print('TASK 4')
+print('-------------------------------------------------')
+
+array = np.random.randint(1,15,size=(3,4,5))
+print(array)
+print('FLIPPING')
+print(np.flip(array))

@@ -1,0 +1,73 @@
+import numpy as np
+import nx as nx
+import pandas as pd
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+from random import random as rand
+
+X = np.arange(0,5,0.1, dtype=np.float32)
+delta = np.random.uniform(-1,1, size=X.shape[0])
+Y = .4 * X + 3 + delta
+
+#making a copy for later use
+rx = X
+ry = Y
+
+plt.scatter(X,Y)
+plt.xlabel('X')
+plt.ylabel('Y')
+
+
+def hyp(theta0, theta1, X):
+    #Your code here
+    return theta0 + theta1*X
+
+
+def cost_function(thetas, X, Y):
+    # Your code here
+    return (1 / 2 * m) * np.sum((hyp(thetas, X) - Y) ** 2)
+
+
+def derivative_cost_function_theta1(theta, X, Y):
+    # Your code here
+
+    return m + alpha*theta
+
+
+def derivative_cost_function_theta0(theta, X, Y):
+    # Your code here
+
+    return c + alpha*theta
+
+
+# Gradient Descent...
+def GradientDescent(X, Y, maxniter=20000):
+    nexamples = float(X.shape[0])
+    thetas = rand(X.shape[1], )
+
+    alpha = 0.01
+    numiter = 400
+    theta = 0
+    # Your code here
+    xTrans = X.transpose()
+    for i in range(0, numiter):
+        # hyp=hypothesis=(theta,X)
+        hyp(theta,X)
+        # loss= hyp.T-Y
+        loss = hyp.T-Y
+        # Cost = sum(loss**2)/2.0*nexamples
+        cost = cost_function(thetas,X,Y)
+        # print cost
+        print(cost)
+        # gradiants= loss.T  . X.T / nexample
+        gradient = loss.T .X.T / nexamples
+
+        theta = theta - alpha * gradient
+    return theta
+
+theta_new=GradientDescent(nx,Y)
+
+plt.scatter(X,Y)
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.plot(nx[:,0],np.dot(nx,theta_new))
